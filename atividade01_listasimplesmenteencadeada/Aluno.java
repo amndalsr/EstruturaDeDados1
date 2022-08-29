@@ -1,4 +1,4 @@
-package atividade01_listasimplismenteencadeada;
+package atividade01_listasimplesmenteencadeada;
 
 public class Aluno {
     private String nome;

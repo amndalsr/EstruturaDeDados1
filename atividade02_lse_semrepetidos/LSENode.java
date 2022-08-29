@@ -1,13 +1,14 @@
-package atividade01_listasimplismenteencadeada;
+package atividade02_lse_semrepetidos;
 
-public class LSENode{
+public class LSENode {
+    
     private Aluno info;
     private LSENode prox;
 
     public LSENode (Aluno valor){
         this.info = valor;
     }
-
+    
     public void setInfo (Aluno valor){
         this.info = valor;
     }

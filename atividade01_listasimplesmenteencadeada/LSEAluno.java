@@ -1,4 +1,4 @@
-package atividade01_listasimplismenteencadeada;
+package atividade01_listasimplesmenteencadeada;
 
 public class LSEAluno {
     private LSENode primeiro;

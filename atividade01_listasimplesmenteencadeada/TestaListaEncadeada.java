@@ -1,4 +1,4 @@
-package atividade01_listasimplismenteencadeada;
+package atividade01_listasimplesmenteencadeada;
 import java.util.Scanner;
 
 public class TestaListaEncadeada {
