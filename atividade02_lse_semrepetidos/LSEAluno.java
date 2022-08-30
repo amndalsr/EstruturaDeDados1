@@ -112,9 +112,9 @@ public class LSEAluno {
         }
     }
 
-    public void alteraFaltas(int f){
+    public void alteraFaltas(String m){
         Scanner in = new Scanner (System.in);
-        Aluno aux = new Aluno(f);
+        Aluno aux = new Aluno(m);
         int qtdFaltas;
         LSENode result = this.buscar(aux);
 
@@ -139,7 +139,8 @@ public class LSEAluno {
             } else {
                 System.out.println("Aluno nao encontrado!");
             }
-        }
+        } // implementar else do caso geral.
+        // concluir sem a função de busca.
 
     }
 }

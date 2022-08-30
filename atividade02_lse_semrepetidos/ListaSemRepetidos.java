@@ -28,10 +28,22 @@ public class ListaSemRepetidos {
                             break;
                     case 3: turma.exibir();
                             break;
-                        
                     case 4: System.out.println("Informe o nome do aluno: ");
                             matr = in.nextLine();
                             turma.exibirAluno(matr);
+                            break;
+                    case 5: System.out.println("Informe o nome do aluno: ");
+                            matr = in.nextLine();
+                            turma.alteraMedia(matr);
+                            break;
+                    case 6: System.out.println("Informe o nom e do aluno: ");
+                            matr = in.nextLine();
+                            turma.alteraFaltas(matr);
+                            break;
+                    case 7: System.out.println("Informe o nome do aluno: ");
+                            matr = in.nextLine();
+                            turma.removeUmAluno(matr);
+                            break;
                     case 0: System.out.println("Encerrando...");
                             break;
                     default: System.out.println("Opção inválida");
