@@ -1,10 +1,12 @@
 package atividade02_lse_semrepetidos;
 
+import java.util.Scanner;
+
 public class LSEAluno {
 
     private LSENode primeiro;
 
-    public boolean isEmpty(){
+    public boolean isEmpty(){         
         if(this.primeiro == null){
             return true;
         } else {
@@ -95,8 +97,23 @@ public class LSEAluno {
     }
 
     public void alteraMedia(String m){
-        // criar scanner ;
-        // fazer o método de busca;
-        // pegar nova média e colocar no lugar da antiga.
+        Scanner in = new Scanner (System.in);
+        Aluno aux = new Aluno(m);
+        double novaMedia;
+        LSENode result = this.buscar(aux);
+
+        if(result == null) {
+            System.out.println("Aluno não encontrado!");
+        } else {
+            System.out.println("Informe a nova média do aluno: ");
+            novaMedia = in.nextDouble();
+            result.getInfo().setMedia(novaMedia);
+            System.out.println("Média alterada!");
+        }
+    }
+
+    public void alteraFaltas(int f){
+        Scanner in = new Scanner (System.in);
+        Aluno 
     }
 }
