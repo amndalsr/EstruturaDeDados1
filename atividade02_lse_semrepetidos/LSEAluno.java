@@ -93,4 +93,10 @@ public class LSEAluno {
         }
 
     }
+
+    public void alteraMedia(String m){
+        // criar scanner ;
+        // fazer o método de busca;
+        // pegar nova média e colocar no lugar da antiga.
+    }
 }
