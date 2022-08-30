@@ -7,6 +7,10 @@ public class Aluno implements Comparable <Aluno> {
     private double media;
     private int faltas;
 
+    public Aluno(String m){
+        this.matr = m;
+    }
+
     public Aluno (String m, String n){
         this.matr = m;
         this.nome = n;

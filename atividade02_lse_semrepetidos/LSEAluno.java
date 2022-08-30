@@ -81,13 +81,16 @@ public class LSEAluno {
         }
     }
 
-    public void exibeDados(Aluno valor){
-        LSENode aux = this.buscar(valor);
-        if(aux != null){
-            System.out.println(aux.getInfo());
+    public void exibirAluno(String m){
+        Aluno aux = new Aluno(m);
+        LSENode result = this.buscar(aux);
+
+        if(result != null){
+            System.out.println("Dados do aluno: ");
+            System.out.println(result.getInfo());
         } else {
             System.out.println("Aluno não existente na lista");
         }
-    }
 
+    }
 }

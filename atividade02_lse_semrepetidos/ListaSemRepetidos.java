@@ -28,7 +28,10 @@ public class ListaSemRepetidos {
                             break;
                     case 3: turma.exibir();
                             break;
-                            
+                        
+                    case 4: System.out.println("Informe o nome do aluno: ");
+                            matr = in.nextLine();
+                            turma.exibirAluno(matr);
                     case 0: System.out.println("Encerrando...");
                             break;
                     default: System.out.println("Opção inválida");
