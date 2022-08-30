@@ -80,4 +80,14 @@ public class LSEAluno {
             }
         }
     }
+
+    public void exibeDados(Aluno valor){
+        LSENode aux = this.buscar(valor);
+        if(aux != null){
+            System.out.println(aux.getInfo());
+        } else {
+            System.out.println("Aluno não existente na lista");
+        }
+    }
+
 }

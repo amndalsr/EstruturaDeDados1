@@ -28,6 +28,7 @@ public class ListaSemRepetidos {
                             break;
                     case 3: turma.exibir();
                             break;
+                            
                     case 0: System.out.println("Encerrando...");
                             break;
                     default: System.out.println("Opção inválida");
@@ -39,8 +40,12 @@ public class ListaSemRepetidos {
         System.out.println("Opções");
         System.out.println("1- Cadastrar novo aluno no início da lista");
         System.out.println("2- Cadastrar novo aluno no final da lista");
-        System.out.println("3- Exibir alunos da turma");
-        System.out.println("0- Encerrar programa");
+        System.out.println("3- Exibir todos os alunos da lista");
+        System.out.println("4- Exibir os dados de um aluno");
+        System.out.println("5- Alterar a média de um aluno");
+        System.out.println("6- Alterar a quantidade de faltas de um aluno");
+        System.out.println("7- Remover um aluno da lista");
+        System.out.println("0- Sair do programa");
         System.out.print("Digite a opção desejada: ");
     }
 }
