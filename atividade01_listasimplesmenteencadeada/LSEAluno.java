@@ -58,21 +58,23 @@ public class LSEAluno {
         }
     }
 
-    public void removeFinal() {
-        if (this.primeiro == null) {
-            return;
-        }
 
-        LSENode node = primeiro.getProx();
-        
-        if (node == null) {
-            node = null;
-            return;
+    public void removeFinal() {
+        LSENode aux, penultimo = null;
+        if (this.isEmpty() == true) {
+            System.out.println("Lista vazia!");
+        } else if (this.primeiro.getProx() == null) { // lista com apenas um nó
+            this.primeiro = null;
         }
-        while (node.getProx() != null) {
-            node = node.getProx();
+        else {
+            aux = this.primeiro;
+            while (aux.getProx() != null) {
+                penultimo = aux;
+                aux = aux.getProx();
+            }
+            penultimo.setProx(null);
+            System.out.println("Remoção efetuada!");
         }
-        node = null;
     }
 
 }
