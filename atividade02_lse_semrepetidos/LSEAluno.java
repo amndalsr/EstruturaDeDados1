@@ -114,6 +114,32 @@ public class LSEAluno {
 
     public void alteraFaltas(int f){
         Scanner in = new Scanner (System.in);
-        Aluno 
+        Aluno aux = new Aluno(f);
+        int qtdFaltas;
+        LSENode result = this.buscar(aux);
+
+        if(result == null){
+            System.out.println("Aluno não encontrado!");
+        } else {
+            System.out.println("Informe a quantidade de faltas do aluno:");
+            qtdFaltas = in.nextInt();
+            result.getInfo().setFaltas(qtdFaltas);
+            System.out.println("Quantidade de faltas do aluno alteradas!");
+        }
+    }
+
+    public void removeUmAluno(String matr){
+        Aluno aux = new Aluno (matr);
+        if(this.isEmpty() == true){
+            System.out.println("Lista vazia!");
+        } else if (this.primeiro.getProx() == null){
+            if(aux.compareTo(this.primeiro.getInfo()) == 0){
+                this.primeiro = null;
+                System.out.println("Aluno removido!");
+            } else {
+                System.out.println("Aluno nao encontrado!");
+            }
+        }
+
     }
 }
