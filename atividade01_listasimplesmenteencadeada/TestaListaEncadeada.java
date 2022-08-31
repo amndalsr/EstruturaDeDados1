@@ -43,7 +43,7 @@ public class TestaListaEncadeada {
     }
 
     public static void exibeMenu(){
-        System.out.println("Opções:");
+        System.out.println("Opções: ");
         System.out.println("1- Cadastrar novo aluno");
         System.out.println("2- Remover o primeiro aluno da lista");
         System.out.println("3- Inserir um novo aluno no final da lista");
