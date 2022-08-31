@@ -139,7 +139,9 @@ public class LSEAluno {
             } else {
                 System.out.println("Aluno nao encontrado!");
             }
-        } // implementar else do caso geral.
+        } 
+        
+        // implementar else do caso geral.
         // concluir sem a função de busca.
 
     }
