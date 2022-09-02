@@ -130,6 +130,7 @@ public class LSEAluno {
 
     public void removeUmAluno(String matr){
         Aluno aux = new Aluno (matr);
+        LSENode atual, anterior;
         if(this.isEmpty() == true){
             System.out.println("Lista vazia!");
         } else if (this.primeiro.getProx() == null){
@@ -139,7 +140,26 @@ public class LSEAluno {
             } else {
                 System.out.println("Aluno nao encontrado!");
             }
-        } 
-
+        } else {
+            if (aux.compareTo(this.primeiro.getInfo()) == 0){
+                this.primeiro = this.primeiro.getProx();
+                System.out.println("Aluno removido!");
+            }
+             anterior = null;
+             atual = this.primeiro;
+             while (atual != null){
+                if(atual.getInfo().compareTo(aux) != 0){
+                    anterior = atual;
+                    atual = atual.getProx();
+                } else {
+                    break;
+                }
+             } if (atual == null){
+                System.out.println("Valor não encontrado!");
+             } else {
+                anterior.setProx(atual.getProx());
+                System.out.println("Aluno removido!");
+             }
+        }
     }
 }
