@@ -172,7 +172,7 @@ public class LSEProdutos {
             novoEstoque = in.nextInt();
             result.getInfo().setEstoque(novoEstoque);
    
-            System.out.println("Dados alterados!");
+            System.out.println("Dados do produto alterados!");
         }
     }
 
