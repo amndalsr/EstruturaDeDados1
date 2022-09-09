@@ -1,5 +1,7 @@
 package atividade04_lse_questoes02e03;
 
+import atividade_avaliativa_lse.LSEPessoas;
+
 public class LSENumeros {
     LSENode primeiro;
 
@@ -94,4 +96,6 @@ public class LSENumeros {
         return c;
     }
 
+
 }
+
