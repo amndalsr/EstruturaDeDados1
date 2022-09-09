@@ -162,7 +162,7 @@ public class LSEProdutos {
         LSENode result = this.buscar(aux);
 
         if(result == null) {
-            System.out.println("Aluno não encontrado!");
+            System.out.println("Produto não encontrado!");
         } else {
             System.out.println("Informe o novo preço do produto: ");
             novoPreço = in.nextDouble();
