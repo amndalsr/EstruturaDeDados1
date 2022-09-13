@@ -1,6 +1,16 @@
 package atividade_avaliativa_lse;
 
 public class LSEPessoas {
+
+    private LSENode primeiro;
+    public boolean isEmpty(){
+        if(this.primeiro == null){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public LSEPessoas CriarUniao(LSEPessoas a, LSEPessoas b){
         LSEPessoas uniao = new LSEPessoas();
         LSENode aux1 = a.primeiro;
