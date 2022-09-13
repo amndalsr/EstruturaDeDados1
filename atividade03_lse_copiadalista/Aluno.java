@@ -11,6 +11,13 @@ public class Aluno implements Comparable <Aluno> {
         this.matr = m;
     }
 
+    public Aluno (String m, String n, double me, int f){
+        this.matr = m;
+        this.nome = n;
+        this.media = me;
+        this.faltas = f;
+    }
+
     public Aluno (String m, String n){
         this.matr = m;
         this.nome = n;
@@ -46,6 +53,11 @@ public class Aluno implements Comparable <Aluno> {
 
     public int getFaltas(){
         return faltas;
+    }
+
+    public Aluno copiarAluno(){
+        Aluno novo = new Aluno(this.matr, this.nome, this.media, this.faltas);
+        return novo;
     }
 
     @Override

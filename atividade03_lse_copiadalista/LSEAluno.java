@@ -196,4 +196,27 @@ public class LSEAluno {
 
         return copiaLista;
     }
+
+    public LSEAluno criarUniao (LSEAluno outra){
+        LSEAluno listaUniao = new LSEAluno();
+        LSENode aux;
+        Aluno original, copia;
+
+        aux = this.primeiro;
+        while (aux != null){
+            original = aux.getInfo();
+            copia = original.copiarAluno();
+            listaUniao.inserirAlunoFinal(copia);
+            aux = aux.getProx();
+        }
+        aux = outra.primeiro;
+        while(aux != null){
+            original = aux.getInfo();
+            copia = original.copiarAluno();
+            listaUniao.inserirAlunoFinal(copia);
+            aux = aux.getProx();
+        }
+        return listaUniao;
+        
+    }
 }
