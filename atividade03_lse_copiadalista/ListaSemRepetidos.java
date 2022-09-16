@@ -57,7 +57,7 @@ public class ListaSemRepetidos {
         }
     }
     public static void exibeMenu() {
-        System.out.println("Opções");
+        System.out.println("Opções: ");
         System.out.println("1- Cadastrar novo aluno no início da lista");
         System.out.println("2- Cadastrar novo aluno no final da lista");
         System.out.println("3- Exibir todos os alunos da lista");
