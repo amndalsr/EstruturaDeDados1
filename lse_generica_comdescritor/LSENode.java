@@ -1,4 +1,4 @@
-package lse_comdescritor;
+package lse_generica_comdescritor;
 
 public class LSENode <T>{
     private T info;
