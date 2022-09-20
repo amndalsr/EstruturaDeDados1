@@ -1,26 +1,26 @@
 package lse_comdescritor;
 
-public class LSENode {
-    private Produto info;
-    private LSENode prox;
+public class LSENode <T>{
+    private T info;
+    private LSENode<T> prox;
 
-    public LSENode (Produto valor){
+    public LSENode (T valor){
         this.info = valor;
     }
 
-    public void setInfo(Produto valor){
+    public void setInfo(T valor){
         this.info = valor;
     }
-
-    public void setProx(LSENode novoProx){
-        this.prox = novoProx;
-    }
-
-    public Produto getInfo(){
+    
+    public T getInfo(){
         return this.info;
     }
 
-    public LSENode getProx(){
+    public void setProx(LSENode<T> novoProx){
+        this.prox = novoProx;
+    }
+
+    public LSENode<T> getProx(){
         return this.prox;
     }
 }
