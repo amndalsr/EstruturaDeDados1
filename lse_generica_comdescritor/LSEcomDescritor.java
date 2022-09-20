@@ -44,6 +44,10 @@ public class LSEcomDescritor<T> {
     public void removerPrimeiro(){
         if(this.isEmpty() == true){
             System.out.println("Lista vazia!");
+        } else if(this.qtd == 1){
+            this.primeiro = null;
+            this.ultimo = null;
+            this.qtd = 0;
         } else {
             primeiro = this.primeiro.getProx();
             System.out.println("Removido");

@@ -11,6 +11,7 @@ public class LSE {
         lista1.inserirNoInicio(30);
         lista1.inserirNoInicio(5);
         System.out.println("Valores Lista 1:");
+        lista1.removerPrimeiro();
         lista1.exibirTodos();
 
         lista2.inserirNoInicio(123.34);
