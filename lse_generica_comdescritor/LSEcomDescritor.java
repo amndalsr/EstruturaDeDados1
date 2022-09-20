@@ -41,4 +41,13 @@ public class LSEcomDescritor<T> {
         }
     }
 
+    public void removerPrimeiro(){
+        if(this.isEmpty() == true){
+            System.out.println("Lista vazia!");
+        } else {
+            primeiro = this.primeiro.getProx();
+            System.out.println("Removido");
+        }
+    }
+
 }
