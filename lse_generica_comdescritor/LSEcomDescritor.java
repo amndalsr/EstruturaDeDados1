@@ -27,6 +27,13 @@ public class LSEcomDescritor<T> {
         }
     }
 
+    public void inseriNoFinal(T valor){
+        LSENode<T> aux;
+        LSENode<T> novo = new LSENode(valor);
+
+        
+    }
+
     public void exibirTodos(){
         LSENode<T> aux;
 
