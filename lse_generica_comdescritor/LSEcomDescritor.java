@@ -18,7 +18,7 @@ public class LSEcomDescritor<T extends Comparable<T>> {
     //inserção ordenada em ordem crescente
     public void inserirOrdenado(T valor){
         LSENode novo = new LSENode(valor);
-        LSENode anterior, atual;
+        LSENode anterior = null, atual;
 
         if(this.isEmpty() == true){ //inserção na lista vazia
             this.primeiro = novo;
@@ -36,7 +36,10 @@ public class LSEcomDescritor<T extends Comparable<T>> {
             atual = this.primeiro;
             while(atual != null){
                 if(atual.getInfo().compareTo(valor) > 0){ // inserir
-
+                    anterior.setProx(novo);
+                    novo.setProx(atual);
+                    this.qtd++;
+                    return;
                 } else {
                     anterior = atual;
                     atual = atual.getProx();
