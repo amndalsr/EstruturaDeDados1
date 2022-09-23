@@ -1,6 +1,6 @@
 package lse_generica_comdescritor;
 
-public class LSEcomDescritor<T> {
+public class LSEcomDescritor<T extends Comparable<T>> {
 
     private LSENode<T> primeiro;
     private LSENode<T> ultimo;
@@ -14,6 +14,38 @@ public class LSEcomDescritor<T> {
         }
     }
 
+    //LSE ordenada crescente sem repetidos
+    //inserção ordenada em ordem crescente
+    public void inserirOrdenado(T valor){
+        LSENode novo = new LSENode(valor);
+        LSENode anterior, atual;
+
+        if(this.isEmpty() == true){ //inserção na lista vazia
+            this.primeiro = novo;
+            this.ultimo = novo;
+            this.qtd++;
+        } else if(valor.compareTo(this.primeiro.getInfo()) < 0) { //inserção no início
+            novo.setProx(this.primeiro);
+            this.primeiro = novo;
+            this.qtd++;
+        } else if(valor.compareTo(this.ultimo.getInfo()) > 0){ //inserção no fnal
+            this.ultimo.setProx(novo);
+            this.ultimo = novo;
+            this.qtd++;
+        } else { //inserção no meio da lista - busca
+            atual = this.primeiro;
+            while(atual != null){
+                if(atual.getInfo().compareTo(valor) > 0){ // inserir
+
+                } else {
+                    anterior = atual;
+                    atual = atual.getProx();
+                }
+            }
+        }
+    }
+
+    /* 
     public void inserirNoInicio(T valor){
         LSENode<T> novo = new LSENode(valor);
         if(this.isEmpty() == true){
@@ -60,5 +92,5 @@ public class LSEcomDescritor<T> {
             System.out.println("Removido");
         }
     }
-
+    */
 }

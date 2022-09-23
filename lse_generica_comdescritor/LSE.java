@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 public class LSE {
     public static void main(String[] args) {
+       
+        /* 
         LSEcomDescritor<Integer> lista1 = new LSEcomDescritor();
         LSEcomDescritor<Double> lista2 = new LSEcomDescritor();
         LSEcomDescritor<Produto> lista3 = new LSEcomDescritor();
@@ -28,5 +30,6 @@ public class LSE {
         lista3.inserirNoInicio(produtoAux3);
         System.out.println("Produtos Lista 3:");
         lista3.exibirTodos();
+        */
     }
 }

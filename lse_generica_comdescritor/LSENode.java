@@ -1,6 +1,6 @@
 package lse_generica_comdescritor;
 
-public class LSENode <T>{
+public class LSENode <T extends Comparable<T>>{
     private T info;
     private LSENode<T> prox;
 
