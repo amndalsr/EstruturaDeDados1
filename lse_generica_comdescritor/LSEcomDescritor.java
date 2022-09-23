@@ -47,6 +47,7 @@ public class LSEcomDescritor<T extends Comparable<T>> {
             }
         }
     }
+    //verifcar se há repetidos (sem usar a função de busca)
 
     /* 
     public void inserirNoInicio(T valor){
