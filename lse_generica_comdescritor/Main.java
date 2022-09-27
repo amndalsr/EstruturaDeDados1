@@ -1,7 +1,7 @@
 package lse_generica_comdescritor;
 import java.util.Scanner;
 
-public class LSE {
+public class Main {
     public static void main(String[] args) {
        
         /* 
