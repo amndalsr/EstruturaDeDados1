@@ -77,7 +77,7 @@ public class LSEOrdenada  <T extends Comparable <T>>{
         }
     }
 
-    public void remover(){
+    public void removeUm(){
         if(this.isEmpty() == true){
             System.out.println("Lista vazia!");
         } else if(this.qtd == 1){
@@ -85,10 +85,20 @@ public class LSEOrdenada  <T extends Comparable <T>>{
             this.ultimo = null;
             this.qtd = 0;
         } else if(){
-            
+
         } else {
             primeiro = this.primeiro.getProx();
             System.out.println("Removido");
         }
     }
 }
+
+/*criar os seguintes  métodos:
+ * cadastrar um livro
+ * remover um liro do cadastro 
+ * exibir dados de um livro
+ * alterar o preço de um livro
+ * atualizar o estoque de um livro
+ * vender um livro (deve removelo pois foi vendido)
+ * exibir todos os livros cadastrados
+*/
