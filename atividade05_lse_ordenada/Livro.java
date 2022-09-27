@@ -6,11 +6,12 @@ public class Livro implements Comparable <Livro>{
     private String autor;
     private double preco;
     private int estoque;
-    private int qtd;
+    private int quantidade;
 
-    public Livro (String cod, String t) {
+    public Livro (String cod, String t, int q) {
         this.codigo = cod;
         this.titulo = t;
+        this.quantidade = q;
     }
 
     public void setCodigo (String codigo) {
@@ -33,8 +34,8 @@ public class Livro implements Comparable <Livro>{
         this.estoque = estoque;
     }
 
-    public void setQtd (int qtd) {
-        this.qtd = qtd;
+    public void setQtd (int quantidade) {
+        this.quantidade = quantidade;
     }
 
     @Override
@@ -44,6 +45,6 @@ public class Livro implements Comparable <Livro>{
 
     @Override
     public String toString() {
-        return this.codigo + " " + this.titulo + " " + this.autor + " " + this.preco + " " + this.estoque + " " + this.qtd;
+        return this.codigo + " " + this.titulo + " " + this.autor + " " + this.preco + " " + this.estoque + " " + this.quantidade;
     }
 }
