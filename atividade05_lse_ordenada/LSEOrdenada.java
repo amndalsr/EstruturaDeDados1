@@ -1,6 +1,6 @@
 package atividade05_lse_ordenada;
 
-public class LSEOrdenada  <T extends Comparable <T>>{
+public class LSEOrdenada <T extends Comparable <T>>{
     
     private LSENode<T> primeiro;
     private LSENode<T> ultimo;
@@ -77,18 +77,51 @@ public class LSEOrdenada  <T extends Comparable <T>>{
         }
     }
 
-    public void removeUm(){
-        if(this.isEmpty() == true){
+    public void remover(T valor) {
+        LSENode<T> aux, anterior, atual;
+        if (this.isEmpty() == true) {
             System.out.println("Lista vazia!");
-        } else if(this.qtd == 1){
-            this.primeiro = null;
-            this.ultimo = null;
-            this.qtd = 0;
-        } else if(){
-
-        } else {
-            primeiro = this.primeiro.getProx();
-            System.out.println("Removido");
+        } else if (this.qtd == 1) {
+            if (valor.compareTo(this.primeiro.getInfo()) == 0) {
+                this.primeiro = null;
+                this.ultimo = null;
+                this.qtd = 0;
+            } else {
+                System.out.println("Não encontrado!");
+            }
+        } else { // mais de um nó
+            if (valor.compareTo(this.primeiro.getInfo()) == 0) { // remoção no inicio
+                this.primeiro = this.primeiro.getProx();
+                this.qtd--;
+            } else if (valor.compareTo(this.primeiro.getInfo()) < 0) {
+                System.out.println("Valor não pertence a lista");
+            } else if (valor.compareTo(this.ultimo.getInfo()) == 0) { // remoção do ultimo
+                aux = this.primeiro;
+                while (aux.getProx() != this.ultimo) {
+                    aux = aux.getProx();
+                }
+                aux.setProx(null);
+                this.ultimo = aux;
+                this.qtd--;
+            } else if (valor.compareTo(this.ultimo.getInfo()) > 0) {
+                System.out.println("Valor não pertence a lista");
+            } else { //remocao no meio da lista
+                anterior = null;
+                atual = this.primeiro;
+                while (atual != null) {
+                    if (valor.compareTo(atual.getInfo()) == 0) {
+                        anterior.setProx(atual.getProx());
+                        this.qtd--;
+                        break;
+                    } else if (valor.compareTo(atual.getInfo()) < 0) {
+                        System.out.println("Valor não pertence a lista");
+                        break;
+                    } else {
+                        anterior = atual;
+                        atual = atual.getProx();
+                    }
+                }
+            }
         }
     }
 }
