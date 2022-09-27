@@ -76,7 +76,7 @@ public class LSEcomDescritor<T extends Comparable<T>> {
                 this.ultimo = aux;
                 this.qtd--;
             } else if (valor.compareTo(this.ultimo.getInfo()) > 0) {
-                System.out.println("Valor não pertence a lista");
+                System.out.println("Valor não pertence a lista.");
             } else { //remocao no meio da lista
                 anterior = null;
                 atual = this.primeiro;
@@ -86,7 +86,7 @@ public class LSEcomDescritor<T extends Comparable<T>> {
                         this.qtd--;
                         break;
                     } else if (valor.compareTo(atual.getInfo()) < 0) {
-                        System.out.println("Valor não pertence a lista");
+                        System.out.println("Valor não pertence a lista.");
                         break;
                     } else {
                         anterior = atual;
