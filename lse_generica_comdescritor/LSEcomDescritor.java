@@ -84,10 +84,10 @@ public class LSEcomDescritor<T extends Comparable<T>> {
         }
     }
 
-    public void removerPrimeiro(){
+    ublic void removerPrimeiro(){
         if(this.isEmpty() == true){
             System.out.println("Lista vazia!");
-        } else if(this.qtd == 1){
+        } elpse if(this.qtd == 1){
             this.primeiro = null;
             this.ultimo = null;
             this.qtd = 0;
