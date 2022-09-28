@@ -12,6 +12,9 @@ public class Livro implements Comparable <Livro>{
         this.codigo = cod;
         this.titulo = t;
     }
+    public Livro (String cod) {
+        this.codigo = cod;
+    }
 
     public void setCodigo (String codigo) {
         this.codigo = codigo;
@@ -45,5 +48,8 @@ public class Livro implements Comparable <Livro>{
     @Override
     public String toString() {
         return this.codigo + " " + this.titulo + " " + this.autor + " " + this.preco + " " + this.estoque + " " + this.quantidade;
+    }
+    public Livro getInfo() {
+        return null;
     }
 }

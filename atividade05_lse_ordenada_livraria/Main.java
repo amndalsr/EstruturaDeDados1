@@ -1,4 +1,5 @@
 package atividade05_lse_ordenada_livraria;
+
 import java.util.Scanner;
 
 public class Main {
@@ -13,24 +14,53 @@ public class Main {
 
         do {
             exibeMenu();
-                op = in.nextInt(); in.nextLine();
-                switch(op){
-                    case 1: System.out.println("Informe o nome do livro: ");
-                            titulo = in.nextLine();
-                            System.out.println("Informe o código do livro: ");
-                            codigo = in.nextLine();
-                            l = new Livro(codigo, titulo);
-                            listaLivros.inserirOrdenado(l);
-                            break;
-                    
-                    case 0: System.out.println("Encerrando...");
+            op = in.nextInt();
+            in.nextLine();
+            switch (op) {
+                case 1:
+                    System.out.println("Informe o nome do livro: ");
+                    titulo = in.nextLine();
+                    System.out.println("Informe o código do livro: ");
+                    codigo = in.nextLine();
+                    l = new Livro(codigo, titulo);
+                    listaLivros.inserirOrdenado(l);
                     break;
-                    default: System.out.println("Opção inválida!");
-                }
+                case 2:
+                    System.out.println("Informe o cdigo do livro: ");
+                    codigo = in.nextLine();
+                    listaLivros.remover(codigo);
+                    listaLivros.exibirTodos();
+                    break;
+                case 3:
+                    System.out.println("Informe o título do livro");
+                    titulo = in.nextLine();
+                    listaLivros.exibirUm(titulo);
+                    break;
+                case 4:
+                    System.out.println("Informe o código do livro");
+                    codigo = in.nextLine();
+                    listaLivros.alteraPreco(codigo);
+                    listaLivros.exibirTodos();
+                    break;
+                case 5:
+                    System.out.println("Informe o código do livro");
+                    codigo = in.nextLine();
+                    listaLivros.alteraEstoque(codigo);
+                    listaLivros.exibirTodos();
+                    break;
+                case 7: 
+                    listaLivros.exibirTodos();
+                    break;
+                case 0:
+                    System.out.println("Encerrando...");
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+            }
         } while (op != 0);
     }
 
-    public static void exibeMenu(){
+    public static void exibeMenu() {
         System.out.println("Opções: ");
         System.out.println("1- Inserir livro na lista");
         System.out.println("2- Remover um livro cadastrado");

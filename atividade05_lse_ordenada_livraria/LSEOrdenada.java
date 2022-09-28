@@ -1,7 +1,9 @@
 package atividade05_lse_ordenada_livraria;
 
-public class LSEOrdenada <T extends Comparable <T>>{
-    
+import java.util.Scanner;
+
+public class LSEOrdenada<T extends Comparable<T>> {
+
     private LSENode<T> primeiro;
     private LSENode<T> ultimo;
     private int qtd;
@@ -14,26 +16,26 @@ public class LSEOrdenada <T extends Comparable <T>>{
         }
     }
 
-    public void inserirOrdenado(T valor){ //cadastrar
+    public void inserirOrdenado(T valor) { // cadastrar
         LSENode novo = new LSENode(valor);
         LSENode anterior = null, atual;
 
-        if(this.isEmpty() == true){ 
+        if (this.isEmpty() == true) {
             this.primeiro = novo;
             this.ultimo = novo;
             this.qtd++;
-        } else if(valor.compareTo(this.primeiro.getInfo()) < 0) {
+        } else if (valor.compareTo(this.primeiro.getInfo()) < 0) {
             novo.setProx(this.primeiro);
             this.primeiro = novo;
             this.qtd++;
-        } else if(valor.compareTo(this.ultimo.getInfo()) > 0){ 
+        } else if (valor.compareTo(this.ultimo.getInfo()) > 0) {
             this.ultimo.setProx(novo);
             this.ultimo = novo;
             this.qtd++;
         } else {
             atual = this.primeiro;
-            while(atual != null){
-                if(atual.getInfo().compareTo(valor) > 0){ 
+            while (atual != null) {
+                if (atual.getInfo().compareTo(valor) > 0) {
                     anterior.setProx(novo);
                     novo.setProx(atual);
                     this.qtd++;
@@ -46,7 +48,7 @@ public class LSEOrdenada <T extends Comparable <T>>{
         }
     }
 
-    public void remover(T valor) { //remover
+    public void remover(T valor) { // remover
         LSENode<T> aux, anterior, atual;
         if (this.isEmpty() == true) {
             System.out.println("Lista vazia!");
@@ -58,13 +60,13 @@ public class LSEOrdenada <T extends Comparable <T>>{
             } else {
                 System.out.println("Não encontrado!");
             }
-        } else { // mais de um nó
-            if (valor.compareTo(this.primeiro.getInfo()) == 0) { // remoção no inicio
+        } else {
+            if (valor.compareTo(this.primeiro.getInfo()) == 0) {
                 this.primeiro = this.primeiro.getProx();
                 this.qtd--;
             } else if (valor.compareTo(this.primeiro.getInfo()) < 0) {
                 System.out.println("Valor não pertence a lista");
-            } else if (valor.compareTo(this.ultimo.getInfo()) == 0) { // remoção do ultimo
+            } else if (valor.compareTo(this.ultimo.getInfo()) == 0) {
                 aux = this.primeiro;
                 while (aux.getProx() != this.ultimo) {
                     aux = aux.getProx();
@@ -74,7 +76,7 @@ public class LSEOrdenada <T extends Comparable <T>>{
                 this.qtd--;
             } else if (valor.compareTo(this.ultimo.getInfo()) > 0) {
                 System.out.println("Valor não pertence a lista");
-            } else { //remocao no meio da lista
+            } else {
                 anterior = null;
                 atual = this.primeiro;
                 while (atual != null) {
@@ -94,20 +96,20 @@ public class LSEOrdenada <T extends Comparable <T>>{
         }
     }
 
-    public void exibirUm(T valor){
-        LSENode<T> aux = this.buscar(valor);
+    public void exibirUm(T valor) { // exibir dados de um livro
+        LSENode<T> aux = this.buscaAprimorada(valor);
 
-        if (aux != null){
+        if (aux != null) {
             System.out.println(aux.getInfo());
         } else {
             System.out.println("Livro não existente na lista");
         }
     }
 
-    public void exibirTodos(){
+    public void exibirTodos() { // exibir todos os livros cadastrados
         LSENode<T> aux;
 
-        if(this.isEmpty() == true){
+        if (this.isEmpty() == true) {
             System.out.println("Lista vazia!");
         } else {
             aux = this.primeiro;
@@ -118,15 +120,35 @@ public class LSEOrdenada <T extends Comparable <T>>{
         }
     }
 
-    private LSENode buscar (T valor){
-        LSENode aux;
+    private LSENode<T> buscaAprimorada(T valor) {
+        LSENode<T> aux;
 
-        if(this.isEmpty() == true){
+        if (this.isEmpty() == true) {
             return null;
         } else {
             aux = this.primeiro;
-            while (aux != null){
-                if(aux.getInfo().compareTo(valor) == 0){
+            while (aux != null) {
+                if (aux.getInfo().compareTo(valor) == 0) {
+                    return aux;
+                }
+                if (aux.getInfo().compareTo(valor) > 0) {
+                    return null;
+                }
+                aux = aux.getProx();
+            }
+        }
+        return null;
+    }
+
+    private LSENode buscar(Livro l) { // buscar livro pelo cod
+        LSENode aux;
+
+        if (this.isEmpty() == true) {
+            return null;
+        } else {
+            aux = this.primeiro;
+            while (aux != null) {
+                if (aux.getInfo().compareTo(l) == 0) {
                     return aux;
                 } else {
                     aux = aux.getProx();
@@ -135,5 +157,38 @@ public class LSEOrdenada <T extends Comparable <T>>{
             return null;
         }
     }
-}
 
+    public void alteraPreco(String cod) {
+        Scanner in = new Scanner(System.in);
+        Livro aux = new Livro(cod);
+        double novoPreco;
+        LSENode result = this.buscar(aux);
+
+        if (aux != null) {
+            System.out.println("Livo não encontrado!");
+        } else {
+            System.out.println("Informe o novo preço do produto: ");
+            novoPreco = in.nextDouble();
+            aux.getInfo().setPreco(novoPreco);
+
+            System.out.println("Preço do livro alterado!");
+        }
+    }
+
+    public void alteraEstoque(String cod) {
+        Scanner in = new Scanner(System.in);
+        Livro aux = new Livro(cod);
+        int novoEstoque;
+        LSENode result = this.buscar(aux);
+
+        if (aux != null) {
+            System.out.println("Livo não encontrado!");
+        } else {
+            System.out.println("Informe o novo estoque do produto: ");
+            novoEstoque = in.nextInt();
+            aux.getInfo().setPreco(novoEstoque);
+
+            System.out.println("Estoque do livro atualizado!");
+        }
+    }
+}
