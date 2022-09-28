@@ -14,7 +14,7 @@ public class LSEOrdenada <T extends Comparable <T>>{
         }
     }
 
-    public void inserirOrdenado(T valor){
+    public void inserirOrdenado(T valor){ //cadastrar
         LSENode novo = new LSENode(valor);
         LSENode anterior = null, atual;
 
@@ -46,38 +46,7 @@ public class LSEOrdenada <T extends Comparable <T>>{
         }
     }
 
-    public void exibirTodos(){
-        LSENode<T> aux;
-
-        if(this.isEmpty() == true){
-            System.out.println("Lista vazia!");
-        } else {
-            aux = this.primeiro;
-            while (aux != null) {
-                System.out.println(aux.getInfo());
-                aux = aux.getProx();
-            }
-        }
-    }
-
-    private LSENode buscar (T valor){
-        LSENode<T> aux;
-        if(this.isEmpty() == true){
-            return null;
-        } else {
-            aux = this.primeiro;
-            while (aux != null){
-                if(aux.getInfo().compareTo(valor) == 0){
-                    return aux;
-                } else {
-                    aux = aux.getProx();
-                }
-            }
-            return null;
-        }
-    }
-
-    public void remover(T valor) {
+    public void remover(T valor) { //remover
         LSENode<T> aux, anterior, atual;
         if (this.isEmpty() == true) {
             System.out.println("Lista vazia!");
@@ -122,6 +91,48 @@ public class LSEOrdenada <T extends Comparable <T>>{
                     }
                 }
             }
+        }
+    }
+
+    public void exibirUm(T valor){
+        LSENode<T> aux = this.buscar(valor);
+
+        if (aux != null){
+            System.out.println(aux.getInfo());
+        } else {
+            System.out.println("Livro não existente na lista");
+        }
+    }
+
+    public void exibirTodos(){
+        LSENode<T> aux;
+
+        if(this.isEmpty() == true){
+            System.out.println("Lista vazia!");
+        } else {
+            aux = this.primeiro;
+            while (aux != null) {
+                System.out.println(aux.getInfo());
+                aux = aux.getProx();
+            }
+        }
+    }
+
+    private LSENode buscar (T valor){
+        LSENode aux;
+
+        if(this.isEmpty() == true){
+            return null;
+        } else {
+            aux = this.primeiro;
+            while (aux != null){
+                if(aux.getInfo().compareTo(valor) == 0){
+                    return aux;
+                } else {
+                    aux = aux.getProx();
+                }
+            }
+            return null;
         }
     }
 }

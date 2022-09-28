@@ -8,10 +8,9 @@ public class Livro implements Comparable <Livro>{
     private int estoque;
     private int quantidade;
 
-    public Livro (String cod, String t, int q) {
+    public Livro (String cod, String t) {
         this.codigo = cod;
         this.titulo = t;
-        this.quantidade = q;
     }
 
     public void setCodigo (String codigo) {
