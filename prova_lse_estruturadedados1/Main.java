@@ -27,7 +27,5 @@ public class Main {
         n3.setProx(n4);
 
         LSEInteiros listDiv = lista1.divideListas(lista1, lista2);
-    
-    
     }
 }
