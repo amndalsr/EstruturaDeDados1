@@ -120,7 +120,7 @@ public class LSEOrdenada<T extends Comparable<T>> {
         }
     }
 
-    private LSENode<T> buscaAprimorada(T valor) {
+    private LSENode<T> buscaAprimorada(T valor) { //buysca aprimorada
         LSENode<T> aux;
 
         if (this.isEmpty() == true) {
@@ -158,7 +158,7 @@ public class LSEOrdenada<T extends Comparable<T>> {
         }
     }
 
-    public void alteraPreco(String cod) {
+    public void alteraPreco(String cod) { //alterar preco do livro
         Scanner in = new Scanner(System.in);
         Livro aux = new Livro(cod);
         double novoPreco;
@@ -175,7 +175,7 @@ public class LSEOrdenada<T extends Comparable<T>> {
         }
     }
 
-    public void alteraEstoque(String cod) {
+    public void alteraEstoque(String cod) { // alterar estoque de um livro
         Scanner in = new Scanner(System.in);
         Livro aux = new Livro(cod);
         int novoEstoque;

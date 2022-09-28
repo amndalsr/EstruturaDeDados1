@@ -8,10 +8,14 @@ public class Livro implements Comparable <Livro>{
     private int estoque;
     private int quantidade;
 
-    public Livro (String cod, String t) {
+    public Livro (String cod, String t, String aut, double p, int e) {
         this.codigo = cod;
         this.titulo = t;
+        this.autor = aut;
+        this.preco = p;
+        this.estoque = e;
     }
+
     public Livro (String cod) {
         this.codigo = cod;
     }
@@ -59,9 +63,13 @@ public class Livro implements Comparable <Livro>{
     public int getEstoque() {
         return estoque;
     }
-
+    
     public int getQuantidade() {
         return quantidade;
+    }
+    
+    public Livro getInfo() {
+        return null;
     }
 
     @Override

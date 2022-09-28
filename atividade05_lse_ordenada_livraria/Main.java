@@ -8,7 +8,7 @@ public class Main {
 
         LSEOrdenada listaLivros = new LSEOrdenada();
         String codigo, autor, titulo;
-        double valor = 0.0;
+        double preco = 0.0;
         int estoque, op;
         Livro l;
 
@@ -22,7 +22,13 @@ public class Main {
                     titulo = in.nextLine();
                     System.out.println("Informe o código do livro: ");
                     codigo = in.nextLine();
-                    l = new Livro(codigo, titulo);
+                    System.out.println("Informe o nome do autor: ");
+                    autor = in.nextLine();
+                    System.out.println("Informe o preço do livro: ");
+                    preco = in.nextDouble();
+                    System.out.println("Informe a quantidade em estoque desse livro: ");
+                    estoque = in.nextInt();
+                    l = new Livro(codigo, titulo, autor, preco, estoque);
                     listaLivros.inserirOrdenado(l);
                     break;
                 case 2:
