@@ -1,4 +1,4 @@
-package atividade05_lse_ordenada;
+package atividade05_lse_ordenada_livraria;
 
 public class LSEOrdenada <T extends Comparable <T>>{
     
@@ -126,12 +126,3 @@ public class LSEOrdenada <T extends Comparable <T>>{
     }
 }
 
-/*criar os seguintes  métodos:
- * cadastrar um livro
- * remover um liro do cadastro 
- * exibir dados de um livro
- * alterar o preço de um livro
- * atualizar o estoque de um livro
- * vender um livro (deve removelo pois foi vendido)
- * exibir todos os livros cadastrados
-*/

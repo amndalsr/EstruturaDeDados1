@@ -1,4 +1,4 @@
-package atividade05_lse_ordenada;
+package atividade05_lse_ordenada_livraria;
 
 public class Livro implements Comparable <Livro>{
     private String codigo;
