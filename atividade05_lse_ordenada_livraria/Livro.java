@@ -49,7 +49,5 @@ public class Livro implements Comparable <Livro>{
     public String toString() {
         return this.codigo + " " + this.titulo + " " + this.autor + " " + this.preco + " " + this.estoque + " " + this.quantidade;
     }
-    public Livro getInfo() {
-        return null;
-    }
+    
 }
