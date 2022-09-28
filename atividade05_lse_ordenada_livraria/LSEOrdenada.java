@@ -169,7 +169,7 @@ public class LSEOrdenada<T extends Comparable<T>> {
         } else {
             System.out.println("Informe o novo preço do produto: ");
             novoPreco = in.nextDouble();
-            aux.getInfo().setPreco(novoPreco);
+            result.getInfo().setPreco(novoPreco);
 
             System.out.println("Preço do livro alterado!");
         }
@@ -186,7 +186,7 @@ public class LSEOrdenada<T extends Comparable<T>> {
         } else {
             System.out.println("Informe o novo estoque do produto: ");
             novoEstoque = in.nextInt();
-            aux.getInfo().setPreco(novoEstoque);
+            result.getInfo().setPreco(novoEstoque);
 
             System.out.println("Estoque do livro atualizado!");
         }
