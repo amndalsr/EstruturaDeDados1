@@ -40,6 +40,30 @@ public class Livro implements Comparable <Livro>{
         this.quantidade = quantidade;
     }
 
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public int getEstoque() {
+        return estoque;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
     @Override
     public int compareTo(Livro l) {
         return this.codigo.compareTo(l.codigo);
