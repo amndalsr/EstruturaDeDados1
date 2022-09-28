@@ -45,13 +45,13 @@ public class Main {
                 case 4:
                     System.out.println("Informe o código do livro");
                     codigo = in.nextLine();
-                    listaLivros.alteraPreco(codigo);
+                    //listaLivros.alteraPreco(codigo);
                     listaLivros.exibirTodos();
                     break;
                 case 5:
                     System.out.println("Informe o código do livro");
                     codigo = in.nextLine();
-                    listaLivros.alteraEstoque(codigo);
+                    //listaLivros.alteraEstoque(codigo);
                     listaLivros.exibirTodos();
                     break;
                 case 7: 

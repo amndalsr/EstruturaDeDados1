@@ -67,10 +67,6 @@ public class Livro implements Comparable <Livro>{
     public int getQuantidade() {
         return quantidade;
     }
-    
-    public Livro getInfo() {
-        return null;
-    }
 
     @Override
     public int compareTo(Livro l) {

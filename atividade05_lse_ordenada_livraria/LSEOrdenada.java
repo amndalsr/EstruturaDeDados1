@@ -158,7 +158,7 @@ public class LSEOrdenada<T extends Comparable<T>> {
         }
     }
 
-    public void alteraPreco(String cod) { //alterar preco do livro
+    /*public void alteraPreco(String cod) { //alterar preco do livro
         Scanner in = new Scanner(System.in);
         Livro aux = new Livro(cod);
         double novoPreco;
@@ -190,5 +190,5 @@ public class LSEOrdenada<T extends Comparable<T>> {
 
             System.out.println("Estoque do livro atualizado!");
         }
-    }
+    }*/
 }

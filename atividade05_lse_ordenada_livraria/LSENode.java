@@ -12,15 +12,15 @@ public class LSENode<T extends Comparable<T>> {
         this.info = valor;
     }
 
+    public T getInfo() {
+        return this.info;
+    }
+
     public void setProx(LSENode<T> novoProx) {
         this.prox = novoProx;
     }
 
     public LSENode<T> getProx() {
         return this.prox;
-    }
-
-    public Livro getInfo() {
-        return null;
     }
 }
