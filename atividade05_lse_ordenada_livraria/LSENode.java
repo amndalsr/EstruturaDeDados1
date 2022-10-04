@@ -1,4 +1,4 @@
-package atividade01_lse_ordenada_livraria;
+package atividade05_lse_ordenada_livraria;
 
 public class LSENode<T extends Comparable<T>> {
     private T info;

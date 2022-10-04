@@ -1,4 +1,4 @@
-package atividade01_lse_ordenada_livraria;
+package atividade05_lse_ordenada_livraria;
 
 import java.util.Scanner;
 
