@@ -77,7 +77,7 @@ public class LSEcomDescritor<T extends Comparable<T>> {
                 this.qtd--;
             } else if (valor.compareTo(this.ultimo.getInfo()) > 0) {
                 System.out.println("Valor não pertence a lista.");
-            } else { //remocao no meio da lista
+            } else { // remocao no meio da lista
                 anterior = null;
                 atual = this.primeiro;
                 while (atual != null) {
@@ -97,52 +97,109 @@ public class LSEcomDescritor<T extends Comparable<T>> {
         }
     }
 
-    /*
-     * public void inserirNoInicio(T valor){
-     * LSENode<T> novo = new LSENode(valor);
-     * if(this.isEmpty() == true){
-     * this.primeiro = novo;
-     * this.ultimo = novo;
-     * this.qtd = 1;
-     * } else {
-     * novo.setProx(this.primeiro);
-     * this.primeiro = novo;
-     * this.qtd++;
-     * }
-     * }
-     * 
-     * public void inseriNoFinal(T valor){
-     * LSENode<T> aux;
-     * LSENode<T> novo = new LSENode(valor);
-     * 
-     * 
-     * }
-     * 
-     * public void exibirTodos(){
-     * LSENode<T> aux;
-     * 
-     * if(this.isEmpty() == true){
-     * System.out.println("Lista vazia!");
-     * } else {
-     * aux = this.primeiro;
-     * while (aux != null) {
-     * System.out.println(aux.getInfo());
-     * aux = aux.getProx();
-     * }
-     * }
-     * }
-     * 
-     * ublic void removerPrimeiro(){
-     * if(this.isEmpty() == true){
-     * System.out.println("Lista vazia!");
-     * } elpse if(this.qtd == 1){
-     * this.primeiro = null;
-     * this.ultimo = null;
-     * this.qtd = 0;
-     * } else {
-     * primeiro = this.primeiro.getProx();
-     * System.out.println("Removido");
-     * }
-     * }
-     */
+    public void inserirNoInicio(T valor) {
+        LSENode<T> novo = new LSENode(valor);
+        if (this.isEmpty() == true) {
+            this.primeiro = novo;
+            this.ultimo = novo;
+            this.qtd = 1;
+        } else {
+            novo.setProx(this.primeiro);
+            this.primeiro = novo;
+            this.qtd++;
+        }
+    }
+
+    public void inseriNoFinal(T valor) {
+        LSENode<T> novo = new LSENode(valor);
+        if (this.isEmpty() == true) {
+            this.primeiro = novo;
+            this.ultimo = novo;
+            this.qtd++;
+        } else {
+            this.ultimo.setProx(novo);
+            this.ultimo = novo;
+            this.ultimo.setProx(this.primeiro);
+            this.qtd++;
+        }
+    }
+
+    public void exibirTodos() {
+        LSENode<T> aux;
+
+        if (this.isEmpty() == true) {
+            System.out.println("Lista vazia!");
+        } else {
+            aux = this.primeiro;
+            while (aux != null) {
+                System.out.println(aux.getInfo());
+                aux = aux.getProx();
+            }
+        }
+    }
+
+    public void removerPrimeiro(){
+      if(this.isEmpty() == true){
+        System.out.println("Lista vazia!");
+      } else if(this.qtd == 1){
+        this.primeiro = null;
+        this.ultimo = null;
+        this.qtd = 0;
+      } else {
+        primeiro = this.primeiro.getProx();
+        System.out.println("Removido");
+      }
+    }
+
+    public void removerUltimo() {
+        LSENode<T> aux;
+        if (isEmpty() == true) {
+            System.out.println("Lista vazia!");
+        } else if (this.qtd == 1) {
+            this.primeiro = null;
+            this.ultimo = null;
+            this.qtd = 0;
+            System.out.println("Remoção efetuada!");
+        } else {
+            aux = this.primeiro;
+            while (aux.getProx() != this.ultimo) {
+                aux = aux.getProx();
+            }
+            aux.setProx(this.primeiro);
+            this.qtd--;
+            System.out.println("Remoção efetuada!");
+
+        }
+    }
+
+    public void contador(T valor) {
+        LSENode<T> aux;
+        int cont = 0;
+        if (isEmpty() == true) {
+            System.out.println("Lista vazia!");
+        } else if (qtd == 1) {
+            if (this.primeiro.getInfo().compareTo(valor) == 0) {
+                System.out.println("O valor aparece apenas uma vez!");
+                return;
+            } else {
+                System.out.println("Valor não encontrado!");
+            }
+        } else {
+            aux = this.primeiro;
+            for (int i = 0; i != qtd; i++) {
+                if (aux.getInfo().compareTo(valor) == 0) {
+                    cont++;
+
+                } else {
+                    aux = aux.getProx();
+                }
+            }
+        }
+        if (cont == 0) {
+            System.out.println("Esse valor não aparece nenhuma vez na lista!");
+        } else {
+            System.out.println("Contador: " + cont);
+        }
+    }
+
 }

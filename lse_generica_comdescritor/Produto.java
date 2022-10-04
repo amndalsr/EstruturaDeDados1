@@ -15,7 +15,7 @@ public class Produto implements Comparable <Produto>{
         this.codigo = codigo;
     }
 
-    public void setDescricao (String desricao){
+    public void setDescricao (String descricao){
         this.descricao = descricao;
     }
 
