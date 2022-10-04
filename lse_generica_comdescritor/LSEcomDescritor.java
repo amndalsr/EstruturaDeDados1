@@ -202,23 +202,20 @@ public class LSEcomDescritor<T extends Comparable<T>> {
         }
     }
 
-    public LSENode<T> buscar (T valor) { // busca sequencial simples
+    public LSENode<T> buscar (T valor) { 
         LSENode<T> aux = this.primeiro;
-        if (this.qtd == 0) { 
-            return null;
-        }
-        else {
-            aux = this.primeiro;
-            while (aux != null) {
-                if (aux.getInfo().compareTo(valor) == 0) {
-                    return aux;
-                }
-                else {
-                    aux = aux.getProx();
-                }
-            }
-            return null;
-        }        
-    }
+		LSENode<T> prox = aux.getProx();
+		while (aux != null) {
+			if (aux.getInfo().compareTo(valor) == 0) {
+				break;
+			}
+			if(prox.getInfo().compareTo(valor) > 0) {
+				aux = null;
+				break;
+			}
+			aux = aux.getProx();
+		}
+		return aux;
+	}
 
 }
