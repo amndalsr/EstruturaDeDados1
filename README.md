@@ -1,2 +1,2 @@
 # EstruturaDeDados1
-Estrutura da dados abordadas no curso de Ciência da Computação - UNICAP.
+Estrutura de dados abordadas no curso de Ciência da Computação - UNICAP.
