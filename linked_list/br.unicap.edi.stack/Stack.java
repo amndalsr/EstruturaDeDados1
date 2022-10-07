@@ -1,7 +1,5 @@
 package linked_list.br.unicap.edi.stack;
 
-import atividade01_listasimplesmenteencadeada.LSENode;
-
 public class Stack<T> {
     private LSENode<T> topo;
 
