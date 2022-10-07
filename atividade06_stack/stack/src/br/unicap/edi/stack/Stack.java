@@ -1,4 +1,4 @@
-import br.unicap.edi.atv;
+package br.unicap.edi.stack;
 
 public class Stack<T> {
     private LSENode<T> topo;

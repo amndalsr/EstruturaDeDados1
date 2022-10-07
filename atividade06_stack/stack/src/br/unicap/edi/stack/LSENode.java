@@ -1,4 +1,4 @@
-import br.unicap.edi.atv;
+package br.unicap.edi.stack;
 
 public class LSENode <T>{
     private T info;
@@ -24,4 +24,3 @@ public class LSENode <T>{
         return this.prox;
     }
 }
-
