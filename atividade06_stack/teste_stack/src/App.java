@@ -23,4 +23,12 @@ public class App {
             System.out.println(resto);
         }
     }
+
+    public void conversaoBinario(){
+
+    }
+
+    public void identificaPalindromo(){
+        
+    }
 }
