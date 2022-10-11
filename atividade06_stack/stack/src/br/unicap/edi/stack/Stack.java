@@ -17,6 +17,7 @@ public class Stack<T> {
         this.topo = novo;
     }
 
+
     public boolean isFull() {
         return false;
     }
