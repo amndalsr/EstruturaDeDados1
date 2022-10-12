@@ -1,41 +1,44 @@
 package br.unicap.edi.queue;
 
 public class Queue<T> {
-    private int [] dados;
-    private int inicio, fim;
-    private int capacidade;
-    private int qtd;
+    private LSENode<T> inicio;
+    private LSENode<T> fim;
 
-    public void enQueue(T valor){
-        if (this.isFull() == true){
-            System.out.println("Lista cheia!");
+    public boolean isEmpty() {
+        if (this.inicio == null) {
+            return true;
         } else {
-            fim = (fim + 1) % capacidade;
-            dados[fim] = valor;
-            this.qtd++;
+            return false;
         }
     }
 
-    public int deQueue(){
-        if (this.isEmpty() == true){
-            System.out.println("Lista vaiza!");
+    public boolean isFull() {
+        return false;
+    }
+
+    public void enQueue (T valor){ //inserir no final
+        LSENode<T> novo = new LSENode(valor);
+        if (this.isEmpty() == true) {
+            this.inicio = novo;
+            this.fim = novo;
         } else {
-            int valor = dados[inicio];
-            inicio = (inicio + 1) % capacidade;
-            this.qtd--;
+            this.fim.setProx(novo);
+            this.fim = novo;
         }
-        return valor;
     }
 
-    public int head(){
-        return ;
+    public T deQueue() { // desenfilerar
+        LSENode<T> aux = this.inicio;
+        if (this.inicio == this.fim) {
+            this.inicio = null;
+            this.fim = null;
+        } else {
+            this.inicio = this.inicio.getProx();
+        }
+        return aux.getInfo();
     }
 
-    public boolean isEmpty(){
-        return this.inicio == -1;
-    }
-
-    public boolean isFull(){
-        return this.inicio == this.capacidade +1;
+    public T head() {
+        return this.inicio.getInfo();
     }
 }

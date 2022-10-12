@@ -11,7 +11,7 @@ public class Queue<T>{
         }
     }
 
-    public void isFull(){
+    public boolean isFull(){
         return false;
     }
 
