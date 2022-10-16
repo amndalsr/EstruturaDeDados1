@@ -67,8 +67,8 @@ Main(){
         } while (op != 0);
     }
 
-    public void exibirOpcoes(){
-        MENU 
+    public static void exibirOpcoes(){
+        MENU AQUI
     }
 }
 
@@ -83,7 +83,7 @@ Pedido(){ --classe
     getters e setters;
 
     public String toString(){
-        return this.num + "" + this.descricao;
+        return this.num + " " + this.descricao;
     }
 }
 
