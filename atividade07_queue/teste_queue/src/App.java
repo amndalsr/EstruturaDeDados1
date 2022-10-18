@@ -30,6 +30,9 @@ public class App {
     }
     
     public static void exibirOpcoes() { 
-
+        System.out.println("Controle da Lanchonete!" + "/n");
+        System.out.println("Digite 1 para fazer o pedido: ");
+        System.out.println("Digite 2 para atender o pedido: ");
+        System.out.println("Digite 0 para encerrar os atendimentos: ");
     }
 }
