@@ -7,7 +7,7 @@ public class Lanchonete {
         fila = new Queue();
     }
 
-    public void cadastrarPedido() {
+    public void cadastrarPedido(Pedido p) {
         fila.enQueue(p);
         System.out.println("Pedido cadastrado!");
     }
@@ -16,8 +16,8 @@ public class Lanchonete {
         if (fila.isEmpty() == true) {
             System.out.println("Não há pedidos em espera!");
         } else {
-            p.fila.deQueue();
-            System.out.println("Preparando pedido!" + p);
+            fila.deQueue();
+            System.out.println("Preparando pedido!");
         }
     }
 }

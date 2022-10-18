@@ -4,10 +4,11 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        /*Scanner in = new Scanner (System.in);
+        Scanner in = new Scanner (System.in);
         Lanchonete lanche = new Lanchonete();
-        int op, num;
+        int op, num = 0;
         String descricao;
+        Pedido p;
 
         do {
             exibirOpcoes();
@@ -26,9 +27,9 @@ public class App {
             }
 
         } while (op != 0);
-        public static void exibirOpcoes() { 
-    
-        }*/
     }
     
+    public static void exibirOpcoes() { 
+
+    }
 }
