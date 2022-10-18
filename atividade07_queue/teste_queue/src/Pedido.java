@@ -23,6 +23,7 @@ public class Pedido {
         return num;
     }
 
+    @Override
     public String toString() {
         return this.num + " " + this.descricao;
     }

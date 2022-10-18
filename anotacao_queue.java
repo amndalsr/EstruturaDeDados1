@@ -64,8 +64,8 @@ Main(){
             case 2: lanche.atenderPedido();
                     break;
             default: sout-- op invalida;
-        } while (op != 0);
-    }
+        }
+    } while (op != 0);
 
     public static void exibirOpcoes(){
         MENU AQUI
