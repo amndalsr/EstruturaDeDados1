@@ -119,8 +119,7 @@ public class LDE <T extends Comparable<T>> {
         }
     }
 
-    public void removerInicio () {
-
+    public void removerInicio() {
         if (this.isEmpty() == true) {
             System.out.println("Lista vazia");
         } else if (this.qtd == 1) {
@@ -134,17 +133,141 @@ public class LDE <T extends Comparable<T>> {
         }
     }
 
+    public void removerFinal() {
+        if (this.isEmpty() == true) {
+            System.out.println("Lista vazia");
+        } else if (this.qtd == 1) {
+            this.primeiro = null;
+            this.ultimo = null;
+            this.qtd = 0;
+        } else {
+            this.ultimo = this.ultimo.getAnt();
+            this.ultimo.setProximo(null);
+            this.qtd--;
+        }
+    }
+
 }
 
 
 ----classe Main------
 // criar outro pacote de teste
-// trazer rapadura
 
 
 //import br.uni...
 classe TestaLDE(){
     Main(){
         LDE<Integer> listaInt = new LDE
+    }
+}
+
+
+
+
+
+
+
+
+
+-------LDE ordenada--------
+//criar nova biblioteca 
+// classes - LDENode e LDECrescente 
+
+-----classe LDENode-----
+
+//package br...
+
+public class LDENode <T extends Comparable<T>> {
+    private LDENode<T> anterior;
+    private T info;
+    private LDENode<T> proximo;
+
+    public LDENode (T valor) {
+        this.info = valor;
+    }
+
+    public void setAnterior(LDENode<T> novoAnterior) {
+        this.anterior = novoAnterior;
+    }
+
+    public LDENode<T> getAnt() {
+        return this.anterior;
+    }
+
+    public void setInfo (T valor) {
+        this.info = valor;
+    }
+
+    public T getInfo() {
+        return this.info;
+    }
+
+    public void setProximo (LDENode<T> novoProximo) {
+        this.proximo = novoProximo;
+    }
+
+    public LDENode<T> getProx() {
+        return this.proximo;
+    }
+}
+
+
+------classe LDECrescente--------
+
+public class LDECrescente <T extends Comparable<T>> {
+    private LDENode<T> primeiro;
+    private LDENode<T> ultimo;
+    private int qtd;
+
+    public boolean isEmpty() {
+        if (this.qtd == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void inserir(T valor) {
+        LDENode<T> novo = LDENode(valor);
+        LDENode<T> aux, anterior;
+        if (this.isEmpty() == true) {
+            this.primeiro = novo;
+            this.ultimo = novo;
+            this.qtd++;
+        } else if (valor.ComparaTo(this.primeiro.getInfo()) < 0) {
+            novo.setProximo(this.primeiro);
+            this.primeiro.setAnterior(novo);
+            this.primeiro = novo;
+            this.qtd++;
+        } else if (valor.ComparaTo(this.primeiro.getInfo()) == 0) {
+            System.out.println("Valor repetido, inserção não efetuada!");
+        } else if (valor.ComparaTo(this.ultimo.getInfo()) > 0) {
+            this.ultimo.setProxim(novo);
+            novo.setAnterior(this.ultimo);
+            this.ultimo = novo;
+            this.qtd++;
+        } else if (valor.ComparaTo(this.ultimo.getInfo()) == 0) {
+           System.out.println("Valor repetido, inserção não efetuada!");
+        } else {
+            aux = this.primeiro.getProx();
+
+            while (true) {
+                if (valor.ComparaTo(aux.getInfo()) == 0) {
+                    System.out.println("Valor repetido, inserção não efetuada!");
+                    break;
+                } else if (valor.ComparaTo(aux.getInfo()) < 0) { //local de inserção encontrado
+                    anterior = aux.getAnt();
+                    anterior.setProximo(novo);
+                    aux.setAnterior(novo);
+                    novo.setProximo(aux);
+                    novo.setAnterior(anterior);
+                    this.qtd++;
+                    break;
+                } else {
+                    aux = aux.getProx();
+                }
+            }
+
+        }
     }
 }
