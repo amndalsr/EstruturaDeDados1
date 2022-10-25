@@ -270,4 +270,9 @@ public class LDECrescente <T extends Comparable<T>> {
 
         }
     }
+
+    //metodo de busca
+
+    //metodo remover
 }
+
