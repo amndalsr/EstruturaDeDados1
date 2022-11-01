@@ -72,6 +72,26 @@ public class LDECrescente < T extends Comparable<T>> {
         return aux;
     }
 
+    /*public LDENode<T> buscar(T valor) {
+        LDENode<T> aux;
+        if(this.isEmpty() == true) {
+            return null;
+        } else if (valor.CompareTo(this.ultimo.getInfo()) > 0) {
+            return null;
+        } else {
+            aux = this.primeiro;
+            while (aux!= null) {
+                if (aux.getInfo().compareTo(valor) == 0) {
+                    return aux;
+                } else if ( valor.compareTo(aux.getInfo()) > 0) {
+                    aux = aux.getProx();
+                } else {
+                    return null;
+                }
+            }
+        }
+    } */
+
     public void remover (T valor) {
         LDENode<T> aux, anterior, atual;
 
@@ -119,6 +139,32 @@ public class LDECrescente < T extends Comparable<T>> {
             }
         }
     }
+
+    /*public void remover (T valor) {
+        LDENode<T> retorno = this.buscar(valor);
+        LDENode<T> anterior, proximo;
+        if(retorno == null) {
+            System.out.println("valor nao encontrado");
+        } else if (this.qtd == 1) {
+            this.primeiro = null;
+            this.ultimo = bull;
+            this.qtd = 0;
+        } else if (retorno == this.primeiro) {
+            this.primeiro = this.primeiro.getProx();
+            this.primeiro.setAnt(null);
+            this.qtd--;
+        } else if (retorno == this.ultmo) {
+            this.ultimo = this.ultimo.getAnt();
+            this.ultimo.getProx(null);
+            this.qtd--;
+        } else {
+            anterior = retorno.getAnt();
+            proximo = retorno.getProx();
+            anterior.setProx(proximo);
+            proximo.setAnt(anterior);
+            this.qtd--;
+        }
+    */ 
 
     public void exibirTodos() {
         LDENode<T> aux;
