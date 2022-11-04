@@ -93,78 +93,30 @@ public class LDECrescente < T extends Comparable<T>> {
     } */
 
     public void remover (T valor) {
-        LDENode<T> aux, anterior, atual;
-
-        if (this.isEmpty() == true) {
-            System.out.println("Lista vazia!");
-        } else if (this.qtd == 1) {
-            if (valor.compareTo(this.primeiro.getInfo()) == 0) {
-                this.primeiro = null;
-                this.ultimo = null;
-                this.qtd = 0;
-            } else {
-                System.out.println("Valor não encontrado!");
-            }
-        } else {
-            if (valor.compareTo(this.primeiro.getInfo()) == 0) {
-                this.primeiro = this.primeiro.getProx();
-                this.qtd--;
-            } else if (valor.compareTo(this.primeiro.getInfo()) < 0) {
-                System.out.println("Não está na lista!");
-            } else if (valor.compareTo(this.ultimo.getInfo()) == 0) {
-                aux = this.primeiro;
-                while (aux.getProx() != this.ultimo) {
-                    aux = aux.getProx();
-                }
-                aux.setProximo(null);
-                this.ultimo = aux;
-                this.qtd--;
-            } else if (valor.compareTo(this.ultimo.getInfo()) > 0) {
-                System.out.println("Não está na lista!");
-            } else {
-                anterior = null;
-                atual = this.primeiro;
-                while (atual != null) {
-                    if (valor.compareTo(atual.getInfo()) == 0) {
-                        anterior.setProximo(atual.getProx());
-                        this.qtd--;
-                        break;
-                    } else if (valor.compareTo(atual.getInfo()) < 0) {
-                        System.out.println("Não está na lista!");
-                    } else {
-                        anterior = atual;
-                        atual = atual.getProx();
-                    }
-                }
-            }
-        }
-    }
-
-    /*public void remover (T valor) {
         LDENode<T> retorno = this.buscar(valor);
         LDENode<T> anterior, proximo;
         if(retorno == null) {
             System.out.println("valor nao encontrado");
         } else if (this.qtd == 1) {
             this.primeiro = null;
-            this.ultimo = bull;
+            this.ultimo = null;
             this.qtd = 0;
         } else if (retorno == this.primeiro) {
             this.primeiro = this.primeiro.getProx();
-            this.primeiro.setAnt(null);
+            this.primeiro.setAnterior(null);
             this.qtd--;
-        } else if (retorno == this.ultmo) {
+        } else if (retorno == this.ultimo) {
             this.ultimo = this.ultimo.getAnt();
-            this.ultimo.getProx(null);
+            this.ultimo.getProx();
             this.qtd--;
         } else {
             anterior = retorno.getAnt();
             proximo = retorno.getProx();
-            anterior.setProx(proximo);
-            proximo.setAnt(anterior);
+            anterior.setProximo(proximo);
+            proximo.setAnterior(anterior);
             this.qtd--;
         }
-    */ 
+    }
 
     public void exibirTodos() {
         LDENode<T> aux;
