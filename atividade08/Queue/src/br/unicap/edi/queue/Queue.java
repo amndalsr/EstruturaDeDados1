@@ -3,11 +3,6 @@ package br.unicap.edi.queue;
 public class Queue<T> {
     private LSENode<T> inicio;
     private LSENode<T> fim;
-    private int limite;
-
-    public Queue (int tam) {
-        this.limite = tam;
-    }
 
     public boolean isEmpty() {
         if (this.inicio == null) {
