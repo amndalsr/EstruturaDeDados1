@@ -78,6 +78,11 @@ public class LDE <T extends Comparable<T>>{
             novo.setAnterior(this.ultimo);
             this.ultimo = novo;
             this.qtd++;
+        } else if (valor.compareTo(this.ultimo.getInfo()) == 0) {
+            novo.setProximo(this.ultimo);
+            this.ultimo.setAnterior(novo);
+            this.ultimo = novo;
+            this.qtd++;
         } else {
             aux = this.primeiro.getProx();
 
