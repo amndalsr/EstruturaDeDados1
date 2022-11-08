@@ -205,4 +205,60 @@ public class LDECircular <T extends Comparable<T>>{
             }
         }
     }
+
+    public void inserirOrdemDecrescente2 (T valor) { //aceita repetidos
+        LDENode<T> novo = new LDENode(valor);
+        LDENode<T> aux, anterior;
+
+        if (this.isEmpty()) {
+            this.primeiro = novo;
+            this.ultimo = novo;
+            this.qtd++;
+            this.primeiro.setAnterior(this.ultimo);
+            this.ultimo.setProximo(this.primeiro);
+        } else if (valor.compareTo(this.primeiro.getInfo()) > 0) {
+            novo.setProximo(this.primeiro);
+            this.primeiro.setAnterior(novo);
+            this.primeiro = novo;
+            this.qtd++;
+            this.primeiro.setAnterior(this.ultimo);
+            this.ultimo.setProximo(this.primeiro);
+        } else if (valor.compareTo(this.primeiro.getInfo()) == 0) {
+            this.primeiro.setProximo(novo);
+            novo.setAnterior(this.primeiro);
+            this.primeiro = novo;
+            this.qtd++;
+            this.primeiro.setAnterior(this.ultimo);
+            this.ultimo.setProximo(this.primeiro);
+        } else if (valor.compareTo(this.ultimo.getInfo()) < 0) {
+            this.ultimo.setProximo(novo);
+            novo.setAnterior(this.ultimo);
+            this.ultimo = novo;
+            this.qtd++;
+            this.primeiro.setAnterior(this.ultimo);
+            this.ultimo.setProximo(this.primeiro);
+        } else if (valor.compareTo(this.ultimo.getInfo()) == 0) {
+            novo.setProximo(this.ultimo);
+            this.ultimo.setAnterior(novo);
+            this.ultimo = novo;
+            this.qtd++;
+            this.primeiro.setAnterior(this.ultimo);
+            this.ultimo.setProximo(this.primeiro);
+        } else {
+            aux = this.primeiro.getProx();
+            while (true) {
+                if (valor.compareTo(aux.getInfo()) >= 0) {
+                    anterior = aux.getAnt();
+                    anterior.setProximo(novo);
+                    aux.setAnterior(novo);
+                    novo.setProximo(aux);
+                    novo.setAnterior(anterior);
+                    this.qtd++;
+                    break;
+                } else {
+                    aux = aux.getProx();
+                }
+            }
+        }
+    }
 }
