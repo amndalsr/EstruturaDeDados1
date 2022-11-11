@@ -1,0 +1,71 @@
+METODO DE INSERÇÃO DE ORDEM DECRESCENTE 
+
+SE HOUVER VALOR REPETIDO ELE INSERE DEPOIS DE TODOS OS IGUAIS
+ 
+ 
+ public void inserirOrdemDecrescente(T valor) {
+        LDENode<T> novo = new LDENode(valor);
+        LDENode<T> aux1, aux2, anterior;
+        aux2 = this.primeiro.getAnt();
+
+        if (this.isEmpty() == true) {
+            this.primeiro = novo;
+            this.ultimo = novo;
+            this.qtd++;
+        } else if (valor.compareTo(this.primeiro.getInfo()) > 0) {
+            novo.setProximo(this.primeiro);
+            this.primeiro.setAnterior(novo);
+            this.primeiro = novo;
+            this.qtd++;
+        } else if (valor.compareTo(this.primeiro.getInfo()) == 0) {
+            while (aux2.getInfo() != valor) {
+                this.primeiro.setProximo(novo);
+                novo.setAnterior(this.primeiro);
+                this.primeiro = novo;
+                this.qtd++;
+            }
+        } else if (valor.compareTo(this.ultimo.getInfo()) < 0) {
+            this.ultimo.setProximo(novo);
+            novo.setAnterior(this.ultimo);
+            this.ultimo = novo;
+            this.qtd++;
+        } else if (valor.compareTo(this.ultimo.getInfo()) == 0) {
+            while (aux2.getInfo() != valor) {
+                novo.setProximo(this.ultimo);
+                this.ultimo.setAnterior(novo);
+                this.ultimo = novo;
+                this.qtd++;
+            }
+        } else {
+            aux1 = this.primeiro.getProx();
+
+            while (true) {
+                if (valor.compareTo(aux1.getInfo()) == 0) {
+                    while (aux2.getInfo() != valor) {
+                        anterior = aux1.getAnt();
+                        anterior.setProximo(novo);
+                        aux1.setAnterior(novo);
+                        novo.setProximo(aux1);
+                        novo.setAnterior(anterior);
+                        this.qtd++;
+                        break;
+                    }
+                } else if (valor.compareTo(aux1.getInfo()) > 0) {
+                    anterior = aux1.getAnt();
+                    anterior.setProximo(novo);
+                    aux1.setAnterior(novo);
+                    novo.setProximo(aux1);
+                    novo.setAnterior(anterior);
+                    this.qtd++;
+                    break;
+                } else {
+                    aux1 = aux1.getProx();
+                }
+            }
+        }
+    }
+
+
+
+
+    
