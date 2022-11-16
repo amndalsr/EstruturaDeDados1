@@ -5,6 +5,7 @@ public class Teste {
         LDECircular<Integer> l1 = new LDECircular();
 
         LDECircular<Integer> l2 = new LDECircular();
+    
 
         //Testa método concatenar
         l1.inserirOrdemDecrescente(5);
@@ -25,6 +26,10 @@ public class Teste {
         l2.inserirOrdemDecrescente(3);
         l2.inserirOrdemDecrescente(12);
 
-        l1.dividir(l2);
+        
+        LDECircular<Integer> l3 = l2.dividir();
+        l3.exibirTodos();
+        l2.exibirTodos();
+        
     }
 }

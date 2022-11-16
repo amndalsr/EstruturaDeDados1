@@ -74,20 +74,19 @@ public class LDECircular <T extends Comparable<T>>{
         return l1; 
     }
 
-    public LDECircular<T> dividir (LDECircular<Integer> lista) {
-        int tamanho = lista.qtd;
-        LDECircular<Integer> l1 = new LDECircular<>();
-        LDECircular<Integer> l2 = new LDECircular<>();
+    public LDECircular<T> dividir () {
+        int tamanho = qtd;
 
-        for (int i = 0; i < tamanho / 2; i++){
-            l1.inserirOrdemDecrescente(i);
+        LDECircular<T> l1 = new LDECircular<>();
+        l1.primeiro = new LDECNode<T>(primeiro.getInfo());
+        LDECNode<T> aux = primeiro;
+
+        for (int i = 0; i < tamanho / 2; i++) {
+            aux = aux.getProx();
+            l1.inserirOrdemDecrescente(aux.getInfo());
         }
 
-        for (int i = tamanho / 2; i < tamanho; i++) {
-            l2.inserirOrdemDecrescente(i);
-        }
-
-        return new LDECircular<>();
+        return l1;
     }
 
     
