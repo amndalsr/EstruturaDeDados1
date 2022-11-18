@@ -3,6 +3,7 @@ import br.unicap.edi.ldec.LDECircular;
 
 public class Teste {
     public static void main(String[] args) throws Exception {
+
         Scanner in = new Scanner (System.in);
         Cadastro estudante = new Cadastro();
         Aluno al;
@@ -57,7 +58,7 @@ public class Teste {
     }
     
     public static void exibirOpcoes() { 
-        System.out.println("CADASTRO DE ESTUDANTES" + "\n" );
+        System.out.println("CADASTRO DE ESTUDANTES" + "\n");
         System.out.println("1 - CADASTRAR NOVO ALUNO");
         System.out.println("2 - LISTAR CADASTRO");
         System.out.println("3 - CONSULTAR ALUNO");
