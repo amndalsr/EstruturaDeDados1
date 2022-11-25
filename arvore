@@ -1,0 +1,150 @@
+criar novo projeto (ClassesInfo)
+br.unicap... 
+    -------Classe Aluno---------
+    public class Aluno implements Comparable <Aluno> {
+    private String matricula;
+    private String nome;
+    private double media;
+    private int faltas;
+
+    public Aluno (String m) {
+        this.matricula = m;
+    }
+
+    public Aluno (String m, String n) {
+        this.matricula = m;
+        this.nome = n;
+    }
+
+    public void setMatricula (String m) {
+        this.matricula = m;
+    }
+
+    public void setNome (String n) {
+        this.nome = n;
+    }
+
+    public void setMedia (double m) {
+        this.media = m;
+    }
+
+    public void setFaltas (int f) {
+        this.faltas = f;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public double getMedia() {
+        return media;
+    }
+
+    public int getFaltas() {
+        return faltas;
+    }
+
+    @Override
+    public int compareTo(Aluno al) {
+        int result;
+        result = this.getMatricula().compareTo(al.getMatricula());
+        return result;
+    }
+
+    @Override
+    public String toString () {
+        return this.matricula + " " + this.nome + " " + this.media + " " + this.faltas;
+    }
+}
+
+
+
+-----------------------------------
+
+//criar novo projto - Cadastros
+//br.unicap...
+
+//add as bibliotecas(import) -binarytree  e -classesinfo
+
+/*classe CadastroAluno{
+    private BinaryTree<Aluno> turma;
+
+    public CadastroAluno() {
+        turma = new BinaryTree();
+    }
+
+    public void Cadastraraluno(){
+        Scanner in = new Scanner (System.in);
+        Aluno al;
+        String nome, matricula;
+        sout("informe nome do aluno:")
+        nome = in.nextLine();
+        sout("info matricula: ")
+        matricula = in.nextLine();
+        al = new Aluno (nome, matricul);
+        turma.insert(al);
+    }
+
+    public void exibirDadosAluno(){
+        scanner in = new scanner ();
+        Aluno al, retorno;
+        String matricula;
+        sout("info matricula: ")
+        matricula = in.nextLine();
+        al = new Aluno(matricula);
+        retorno = turma.buscar(al);
+        if (retorno== null) {
+            sout Aluno n encontrado
+        } else {
+            sout Dados do aluno:
+            sout retono;
+        }
+    }
+
+    public void exibiralunosturma() {
+        if (this.turma.isEmpty() == true){
+            sout nao eistem alunos na turma
+        }else {
+            this.turma.emOrdem
+        }
+    }
+
+
+
+    ---------------
+
+
+
+package testatree;
+
+import cadastro
+
+
+public class TestaTree {
+
+    public static void main(String[] args) {
+        CadastroAlunos turamED1 = new CadastroAluns()
+        int op;
+
+        caso1 turmaED1.cadastraraluno();
+        caso2 turmaED1.exibirdadpsalno();
+        caso3 turmaED1.exibirturma();
+
+    }
+    
+    public static void opcoes(){
+        sout:
+        1 cadastrar aluno
+        2 exibir dados de um aluno
+        3 exibir turma
+    }
+}
+
+}
+*/
+
+

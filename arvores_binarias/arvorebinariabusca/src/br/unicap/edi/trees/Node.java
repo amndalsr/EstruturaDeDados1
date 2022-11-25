@@ -50,4 +50,22 @@ public class Node <T extends Comparable<T>>{
             }
         }
     }
+
+    T findNode (T valor) {
+        if (valor.compareTo(this.getInfo()) == 0) {
+            return this.getInfo();
+        } else if (valor.compareTo(this.getInfo()) < 0) {
+            if (this.left == null) {
+                return null;
+            } else {
+                return this.left.findNode(valor);
+            }
+        } else {
+            if (this.right == null) {
+                return null;
+            } else {
+                return this.right.findNode(valor);
+            }
+        }
+    }
 }
