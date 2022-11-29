@@ -46,4 +46,38 @@ public class BinaryTree <T extends Comparable<T>>{
             return null; //valor não encontrado
         }
     }
+
+    public void inserir (T valor) {
+        Node<T> novo = new Node<T>(valor);
+        Node<T> aux;
+
+        if (this.isEmpty() == true) {
+            this.raiz = novo;
+        } else {
+            aux = this.raiz;
+
+            while(true){
+                if (valor.compareTo(aux.getInfo()) == 0) {
+                    System.out.println("Valor já existente!");
+                    break;
+                } else if (valor.compareTo(aux.getInfo()) < 0) {
+                    if (aux.getLeft() == null) {
+                        aux.setLeft(novo);
+                        break;
+                    } else {
+                        aux = aux.getLeft();
+                    }
+                } else if (valor.compareTo(aux.getInfo()) > 0) {
+                    if (aux.getRight() == null) {
+                        aux.setRight(novo);
+                        break;
+                    } else {
+                        aux = aux.getRight();
+                    }
+                } else {
+                    break;
+                }
+            } 
+        }
+    }
 }
