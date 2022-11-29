@@ -27,6 +27,14 @@ public class BinaryTree <T extends Comparable<T>>{
         }
     }
 
+    public void emOrdem() {
+        if (this.isEmpty() == true) {
+            System.out.println("Árvore vazia");
+        } else {
+            percorrerEmOrdem(this.raiz);
+        }
+    }
+
     public T buscar (T valor) {
         Node<T> aux;
         if (this.isEmpty() == true) {

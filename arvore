@@ -113,6 +113,27 @@ br.unicap...
         }
     }
 
+    public void alterarMediaAluno(){
+        scanner in = new scanner ();
+        Aluno al, retorno;
+        String matricula;
+        double media;
+        sout("info matricula: ")
+        matricula = in.nextLine();
+        al = new Aluno(matricula);
+        retorno = turma.buscar(al);
+        if (retorno == null) {
+            sout Aluno n encontrado
+        } else {
+            sout Dados atuai do aluno:
+            sout retono;
+            sout informe a nova media do aluno:
+            media = in.nextDouble();
+            retorno.setMedia(media);
+            sout media alterada.
+        }
+    }
+
 
 
     ---------------
@@ -133,6 +154,7 @@ public class TestaTree {
         caso1 turmaED1.cadastraraluno();
         caso2 turmaED1.exibirdadpsalno();
         caso3 turmaED1.exibirturma();
+        case4 turmaED1.alterarMediaAluno();
 
     }
     
@@ -141,6 +163,7 @@ public class TestaTree {
         1 cadastrar aluno
         2 exibir dados de um aluno
         3 exibir turma
+        4 alterar media do aluno
     }
 }
 
