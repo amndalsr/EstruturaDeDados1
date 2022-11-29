@@ -74,8 +74,6 @@ public class BinaryTree <T extends Comparable<T>>{
                     } else {
                         aux = aux.getRight();
                     }
-                } else {
-                    break;
                 }
             } 
         }
