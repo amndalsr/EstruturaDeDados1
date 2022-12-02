@@ -29,9 +29,17 @@ public class BinaryTree <T extends Comparable<T>>{
 
     public void emOrdem() {
         if (this.isEmpty() == true) {
-            System.out.println("Árvore vazia");
+            System.out.println("Árvore vazia!");
         } else {
-            percorrerEmOrdem(this.raiz);
+            this.percorrerEmOrdem(this.raiz);
+        }
+    }
+
+    private void percorrerEmOrdem(Node<T> r) {
+        if (r != null) {
+            percorrerEmOrdem(r.getLeft());
+            System.out.println(r.getInfo());
+            percorrerEmOrdem(r.getRight());
         }
     }
 
@@ -85,5 +93,42 @@ public class BinaryTree <T extends Comparable<T>>{
                 }
             } 
         }
+    }
+
+    public void remove (T valor) {
+        if (this.isEmpty() == true) {
+            System.out.println("Árvore vazia!");
+        } else {
+            this.raiz = this.removeNode(this.raiz, valor);
+        }
+    }
+
+    private Node<T> removeNode (Node<T> r, T valor) {
+        if (r != null) {
+            if (valor.compareTo(r.getInfo()) == 0) {
+                Node<T> pai, filho;
+                if (r.getLeft() == null && r.getRight() == null) { //não tem filhos
+                    r = null;
+                } else if (r.getLeft() == null) { //não tem filho a esquerda
+                    r = r.getRight();
+                } else if (r.getRight() == null) { //não tm filho a direita
+                     r = r.getLeft();
+                } else { //tem ambos os filhos
+                    pai = r;
+                    filho = pai.getLeft();
+                    while (filho.getRight() != null) {
+                        pai = filho;
+                        filho = filho.getRight();
+                    }
+                    pai.setRight(filho.getLeft());
+                    r.setInfo(filho.getInfo());
+                }
+            } else if (valor.compareTo(r.getInfo()) < 0) {
+                r.setLeft(removeNode(r.getLeft(), valor));
+            } else {
+                r.setRight(removeNode(r.getRight(), valor));
+            }
+        }
+        return r;
     }
 }
