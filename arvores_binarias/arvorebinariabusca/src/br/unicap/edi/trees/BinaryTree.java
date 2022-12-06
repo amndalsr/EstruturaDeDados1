@@ -1,7 +1,9 @@
 package br.unicap.edi.trees;
+import br.unicap.edi.queue.Queue;
 
 public class BinaryTree <T extends Comparable<T>>{
     private Node<T> raiz; 
+    private int count;
     
     public boolean isEmpty() {
         if (this.raiz == null) {
@@ -43,7 +45,39 @@ public class BinaryTree <T extends Comparable<T>>{
         }
     }
 
-    public T buscar (T valor) {
+    public void preOrdem() {
+        if (this.isEmpty() == true) {
+            System.out.println("Árvore vazia!");
+        } else {
+            percorrerPreOrdem(this.raiz);
+        }
+    }
+
+    private void percorrerPreOrdem (Node<T> r) {
+        if (r != null) {
+            System.out.println(r.getInfo());
+            percorrerPreOrdem(r.getLeft());
+            percorrerPreOrdem(r.getRight());
+        }
+    }
+
+    public void posOrdem() {
+        if (this.isEmpty() == true) {
+            System.out.println("Árvore vazia!");
+        } else {
+            percorrerPosOrdem(this.raiz);
+        }
+    }
+
+    private void percorrerPosOrdem (Node<T> r) {
+        if (r != null) {
+            percorrerPosOrdem(r.getLeft());
+            percorrerPosOrdem(r.getRight());
+            System.out.println(r.getInfo());
+        }
+    }
+
+    public T buscar (T valor) { // não recursivo
         Node<T> aux;
         if (this.isEmpty() == true) {
             return null;
@@ -63,7 +97,27 @@ public class BinaryTree <T extends Comparable<T>>{
         }
     }
 
-    public void inserir (T valor) {
+    public void passeioPorNivel() {
+        Queue<Node<T>> fila;
+        Node<T> aux;
+        if (this.isEmpty() == false) {
+            fila = new Queue();
+            fila.enQueue (raiz);
+            while (fila.isEmpty() == false) {
+                aux = fila.deQueue();
+
+                if (aux.getLeft() != null) {
+                    fila.enQueue(aux.getLeft());
+                }
+                if (aux.getRight() != null) {
+                    fila.enQueue(aux.getRight());
+                }
+                System.out.println(aux.getInfo());
+            }
+        }
+    }
+
+    public void inserir (T valor) { // não recursivo 
         Node<T> novo = new Node<T>(valor);
         Node<T> aux;
 
@@ -130,5 +184,74 @@ public class BinaryTree <T extends Comparable<T>>{
             }
         }
         return r;
+    }
+
+    public void enderecoNoEsquerda() {
+        if (this.isEmpty() == true) {
+            System.out.println("Árvore vazia!");
+        } else {
+            encontraEnderecoNoEsquerda(this.raiz);
+        }
+    }
+
+    private void encontraEnderecoNoEsquerda (Node<T> r) {
+        if (r.getRight() == null) {
+            r.getInfo();
+        }
+    }
+
+    public void enderecoNoDireita() {
+        if (this.isEmpty() == true) {
+            System.out.println("Árvore vazia!");
+        } else {
+            encontraEnderecoNoDireita(this.raiz);
+        }
+    }
+
+    private void encontraEnderecoNoDireita (Node<T> r) {
+        if (r.getLeft() == null) {
+            r.getInfo();
+        }
+    }
+
+    public void QtdNos() {
+        Queue<Node<T>> fila;
+        Node<T> aux;
+        if (this.isEmpty() == false) {
+            fila = new Queue();
+            fila.enQueue (raiz);
+            while (fila.isEmpty() == false) {
+                aux = fila.deQueue();
+
+                if (aux.getLeft() != null) {
+                    fila.enQueue(aux.getLeft());
+                }
+                if (aux.getRight() != null) {
+                    fila.enQueue(aux.getRight());
+                }
+                count++;
+            }
+        }
+    }
+
+    public void QtdFolhas() {
+        Queue<Node<T>> fila;
+        Node<T> aux;
+        if (this.isEmpty() == false) {
+            fila = new Queue();
+            fila.enQueue (raiz);
+            while (fila.isEmpty() == false) {
+                aux = fila.deQueue();
+
+                if (aux.getLeft() == null) {
+                    fila.enQueue(aux.getLeft());
+                    count++;
+                }
+                if (aux.getRight() == null) {
+                    fila.enQueue(aux.getRight());
+                    count++;
+                }
+            }
+        }
     }
 }
