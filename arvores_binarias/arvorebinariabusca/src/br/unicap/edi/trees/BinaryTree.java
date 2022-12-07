@@ -77,7 +77,7 @@ public class BinaryTree <T extends Comparable<T>>{
         }
     }
 
-    public T buscar (T valor) { // não recursivo
+    public T buscar (T valor) { //não recursivo
         Node<T> aux;
         if (this.isEmpty() == true) {
             return null;
